@@ -252,30 +252,42 @@
 # foo()
 
 # 带参数的装饰器
-import time
+# import time
+#
+#
+# def write_log(func):
+#     print('访问：', func.__name__, '\t时间：', time.asctime())
+#
+#
+# def funcOut(func):
+#     def funcIn(*args, **kwargs):
+#         write_log(func)
+#         return func(*args, **kwargs)
+#
+#     return funcIn
+#
+#
+# @funcOut
+# def sum(a, b):
+#     return a + b
+#
+#
+# @funcOut
+# def add(a, b, c):
+#     return a + b + c
+#
+#
+# print(sum(10, 20))
+# print(add(10, 20, 30))
 
 
-def write_log(func):
-    print('访问：', func.__name__, '\t时间：', time.asctime())
+# 偏函数
+print(int('123456'))
+print(int('123456', base=8))  # 转化为8进制
+print(int('123456', base=16))  # 转化为16进制
+print(int('10101010', base=2))  # 转化为2进制
 
+from functools import partial
 
-def funcOut(func):
-    def funcIn(a, *b):
-        write_log(func)
-        return func(a, b)
-
-    return funcIn
-
-
-@funcOut
-def sum(a, b):
-    return a + b
-
-
-@funcOut
-def add(a, b, c):
-    return a + b + c
-
-
-print(sum(10, 20))
-print(add(10, 20, 30))
+new_int = partial(int, base=2)
+print(new_int('1010'))
