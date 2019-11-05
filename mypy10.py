@@ -37,7 +37,7 @@ import sys as s
 
 # 模块发布和安装
 # 1.模块本地发布 发布 python setup.py sdist  安装 python setup.py install
-import my_package.demo1
+# import my_package.demo1
 
 # 2.远程发布
 # (1) 注册PyPi官网
